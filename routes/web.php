@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(CheckSubcriptionStatus::class)->group(function () {
     // Route::get('/baseball', [PicksController::class, 'create'])->name('baseball');
-    Route::get('/baseball', [PicksController::class, 'picks'])->name('picks');
+    Route::get('/baseball', [PicksController::class, 'create'])->name('picks');
     Route::get('/hockey', [HockeyController::class, 'create'])->name('hockey');
     Route::get('/tennis', [TennisController::class, 'create'])->name('tennis');
     Route::get('/results/daily', [ResultsController::class, 'create'])->name('results.daily');
