@@ -266,7 +266,7 @@ class BaseballNumerologyService {
       $game['ranking_parameters']['home']['isPitcherBDLastTwo'] = false;
       $game['ranking_parameters']['away']['isPitcherBDLastTwo'] = false;
 
-      if (!isset($game['teams']['homeTeam']['startingPitcher']) || !isset($game['teams']['awayTeam']['startingPitcher'])) {
+      if (!isset($game['teams']['homeTeam']['startingPitcher']) || !isset($game['teams']['awayTeam']['startingPitcher']) || !isset($game['teams']['homeTeam']['startingPitcher']['player']) || !isset($game['teams']['awayTeam']['startingPitcher']['player'])) {
         continue;
       }
 
