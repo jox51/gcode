@@ -87,7 +87,7 @@ export default function Navbar() {
                         </Link>
                     ))}
                 </div>
-                <ResultsDropdown />
+                {/* <ResultsDropdown /> */}
 
                 <div className="hidden pr-8 lg:flex lg:flex-1 lg:justify-end ">
                     {auth.user ? (
