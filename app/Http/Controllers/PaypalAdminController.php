@@ -8,8 +8,10 @@ use Inertia\Inertia;
 use PhpParser\Node\Stmt\TryCatch;
 use App\Http\Utils\PaypalApiCredentialsTrait;
 use App\Http\Utils\UpdateSubscriptionTrait;
+use App\Mail\SubscriptionUpdatedEmail;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class PaypalAdminController extends Controller {
   use PayPalApiCredentialsTrait;
@@ -138,6 +140,8 @@ class PaypalAdminController extends Controller {
 
           $user = User::where('payer_id', $responseArray['webhook_event']['resource']['payer']['payer_info']['payer_id'])->first();
           $this->updateStatus($user, false);
+          Mail::to($user->email)->send(new SubscriptionUpdatedEmail($user));
+
           break;
       }
     }

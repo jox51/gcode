@@ -19,7 +19,7 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #4CAF50; /* A nice green */
+            color: #4CAF50; /* A welcoming green */
         }
         p {
             font-size: 16px;
@@ -28,19 +28,23 @@
             display: inline-block;
             padding: 10px 20px;
             margin: 10px 0;
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Consistent green for positive actions */
             color: white;
             text-decoration: none;
             border-radius: 5px;
+        }
+        a.button:hover {
+            background-color: #388E3C; /* Darker green for hover effect */
         }
     </style>
 </head>
 <body>
     <div class="email-container">
-        <h1>Welcome to Our Community, {{$user->name}}!</h1>
-        <p>We are thrilled to have you with us. As a new member, you'll get to explore all the exciting features we offer. Get ready to experience the best we have to offer!</p>
-        <p>If you have any questions or need assistance, feel free to contact our support team. We're here to help you every step of the way.</p>
-        <a href="{{ url('/baseball') }}" class="button">Get Started</a>
+        <h1>Welcome Aboard, {{$user->name}}!</h1>
+        <p>Thank you for subscribing! We're excited to have you join our community. You've just taken the first step towards experiencing the best we have to offer.</p>
+        <p>We encourage you to explore our features and get involved. If you have any questions or need assistance, our support team is just an email away.</p>
+        <p><a href="mailto:support@gcode.cash" class="button">Contact Support</a></p>
+        <p>Get ready to dive in and enjoy your new subscription!</p>
     </div>
 </body>
 </html>

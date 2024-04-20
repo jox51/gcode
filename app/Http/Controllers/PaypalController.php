@@ -9,7 +9,9 @@ use Inertia\Inertia;
 use PhpParser\Node\Stmt\TryCatch;
 use App\Http\Utils\PaypalApiCredentialsTrait;
 use App\Http\Utils\UpdateSubscriptionTrait;
+use App\Mail\UserSubscribedEmail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class PaypalController extends Controller {
     use PayPalApiCredentialsTrait;
@@ -43,6 +45,7 @@ class PaypalController extends Controller {
                 // $request->user()->subscription_status = true;
                 $request->user()->save();
                 $this->updateStatus($request->user(), true);
+                Mail::to($request->user()->email)->send(new UserSubscribedEmail($request->user()));
 
                 return Inertia::location(route('picks'));
             } else {
