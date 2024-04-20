@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeEmail;
 use App\Models\BaseballData;
+use App\Models\User;
 use App\Services\BaseballRecordService;
 use App\Services\BaseballNumerologyService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
 
@@ -27,7 +30,6 @@ class PicksController extends Controller {
         // Get today's date in EST and format it to match the date portion of the datetime field
         $todayDate = Carbon::now('America/New_York')->format('Y-m-d');
         $baseballData = BaseballData::whereDate('date', '=', $todayDate)->get()->toArray();
-
 
 
 
