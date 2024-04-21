@@ -71,9 +71,11 @@ export default function Pricing() {
                                 </p>
                                 <Link
                                     href="/subscribe"
+                                    as={"button"}
                                     method="POST"
                                     className="mt-10 block w-full rounded-md bg-orange-500 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-orange-400 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500 dark:hover:bg-orange-600"
                                     // data={{ id: planId }}
+                                    disabled={true}
                                 >
                                     Join the Winners' Circle
                                 </Link>
