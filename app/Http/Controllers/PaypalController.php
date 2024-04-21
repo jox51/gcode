@@ -68,9 +68,11 @@ class PaypalController extends Controller {
         $payer->setPaymentMethod('paypal');
         $agreement->setPayer($payer);
 
+
         try {
             $agreement = $agreement->create($this->apiContext);
             $approvalUrl = $agreement->getApprovalLink();
+
             return Inertia::location($approvalUrl);
         } catch (\Exception $ex) {
             dd($ex);

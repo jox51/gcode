@@ -44,6 +44,6 @@ class CheckSubcriptionStatus {
      * @return array
      */
     protected function manualUserList(): array {
-        return ['test2@test.com', 'test@test.com', 'Garythenumbersguy@gmail.com'];
+        return ['test2@test.com', 'test@test.com', 'garythenumbersguy@gmail.com'];
     }
 }

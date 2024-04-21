@@ -1,0 +1,27 @@
+[21-04-2024 11:45:10] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[21-04-2024 11:45:11] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:45:11] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/billing-plans/
+[21-04-2024 11:45:11] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[21-04-2024 11:45:11] PayPal\Core\PayPalHttpConnection : INFO: PATCH https://api.paypal.com/v1/payments/billing-plans/P-62454953743240252AB4XNYA
+[21-04-2024 11:45:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:45:15] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[21-04-2024 11:45:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:45:16] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.paypal.com/v1/payments/billing-plans/?page_size=10&status=ALL
+[21-04-2024 11:45:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:45:51] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[21-04-2024 11:45:52] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:45:52] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.paypal.com/v1/payments/billing-plans/?page_size=10&status=ALL
+[21-04-2024 11:45:53] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:46:22] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[21-04-2024 11:46:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:46:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/billing-agreements/
+[21-04-2024 11:46:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[21-04-2024 11:47:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[21-04-2024 11:47:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:47:24] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/billing-agreements/
+[21-04-2024 11:47:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 401
+[21-04-2024 11:47:24] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 401 when accessing https://api.paypal.com/v1/payments/billing-agreements/. {"name":"UNAUTHORIZED_ACCESS","debug_id":"758540204ace9","message":"You don't have permission to access this resource.","information_link":"https://developer.paypal.com/docs/api/payments.billing-agreements#errors","details":[{"field":"unauthorized_access","issue":"You don't have permission to access this resource."}]}
+[21-04-2024 11:47:48] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/oauth2/token
+[21-04-2024 11:47:48] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[21-04-2024 11:47:48] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.paypal.com/v1/payments/billing-agreements/
+[21-04-2024 11:47:49] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
