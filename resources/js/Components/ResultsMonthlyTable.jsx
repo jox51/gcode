@@ -3,6 +3,7 @@ import { MaterialReactTable } from "material-react-table";
 import { useThemeStore } from "@/store/themeStore";
 import { useTheme } from "@mui/material";
 import { usePage } from "@inertiajs/react";
+import { format, parseISO } from "date-fns";
 
 const ResultsMonthlyTable = () => {
     const { monthlyResults } = usePage().props;
@@ -47,16 +48,14 @@ const ResultsMonthlyTable = () => {
         return { tableData: data, validRanks };
     }, [monthlyResults]);
 
+    console.log({ tableData });
     const columns = useMemo(
         () => [
             {
                 accessorKey: "month",
                 header: "Month",
                 Cell: ({ cell }) =>
-                    new Date(cell.getValue()).toLocaleDateString(undefined, {
-                        year: "numeric",
-                        month: "long",
-                    }),
+                    format(parseISO(cell.getValue()), "MMMM yyyy"),
             },
             {
                 accessorKey: "sport",
