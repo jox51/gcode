@@ -1,5 +1,3 @@
-import { PaperClipIcon } from "@heroicons/react/20/solid";
-
 export default function PlanList({ planId, planName, planState, planType }) {
     return (
         <div>
