@@ -2,10 +2,6 @@ import { Link } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
 import PlanList from "./PlanList";
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-}
-
 export default function AdminComponent() {
     const { plans } = usePage().props;
 
