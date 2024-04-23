@@ -48,7 +48,6 @@ const ResultsMonthlyTable = () => {
         return { tableData: data, validRanks };
     }, [monthlyResults]);
 
-    console.log({ tableData });
     const columns = useMemo(
         () => [
             {
