@@ -8,7 +8,7 @@ function classNames(...classes) {
 
 export default function AdminComponent() {
     const { plans } = usePage().props;
-    console.log({ plans });
+
     return (
         <div className="lg:flex lg:items-center lg:justify-content">
             <div className="min-w-0 flex-1">
