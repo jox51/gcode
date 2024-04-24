@@ -18,7 +18,7 @@ Artisan::command('inspire', function () {
 
 Schedule::command('mlb:fetch-games')->timezone('America/New_York')->dailyAt('05:00');
 Schedule::command('nhl:fetch-games')->timezone('America/New_York')->dailyAt('06:00');
-Schedule::command('tennis:fetch-games')->timezone('America/New_York')->twiceDailyAt(4, 6, 30);
+Schedule::command('tennis:fetch-games')->timezone('America/New_York')->dailyAt("06:20");
 Schedule::command('games:fetch-results')->timezone('America/New_York')->dailyAt('7:00');
 
 
