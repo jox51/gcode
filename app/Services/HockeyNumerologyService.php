@@ -375,30 +375,30 @@ class HockeyNumerologyService {
       $game['to_win'] = ''; // default to empty string
       $game['auto_over'] = false; // default to false
 
-      // parameters for A rank
+      // parameters for A rank, new rank C
       // Total Wins equal to Event LP, other team to win
       if ($game['ranking_parameters']['home']['totalWinsVsEventDayLP'] && !$game['ranking_parameters']['away']['totalWinsVsEventDayLP']) {
-        $game['algo_rank'] = 'A';
+        $game['algo_rank'] = 'C';
         $game['to_win'] = 'away';
       }
 
-      // Total Wins equal to Event LP, home team to win
+      // Total Wins equal to Event LP, home team to win, new rank C
       if ($game['ranking_parameters']['away']['totalWinsVsEventDayLP'] && !$game['ranking_parameters']['home']['totalWinsVsEventDayLP']) {
-        $game['algo_rank'] = 'A';
+        $game['algo_rank'] = 'C';
         $game['to_win'] = 'home';
       }
 
       // Home Wins equal to Event LP, other team to win, rank B
-      if ($game['ranking_parameters']['home']['homeWinsVsEventDayLP'] && !$game['ranking_parameters']['away']['awayWinsVsEventDayLP']) {
-        $game['algo_rank'] = 'B';
-        $game['to_win'] = 'away';
-      }
+      // if ($game['ranking_parameters']['home']['homeWinsVsEventDayLP'] && !$game['ranking_parameters']['away']['awayWinsVsEventDayLP']) {
+      //   $game['algo_rank'] = 'B';
+      //   $game['to_win'] = 'away';
+      // }
 
       // Away Wins equal to Event LP, home team to win, rank B
-      if ($game['ranking_parameters']['away']['awayWinsVsEventDayLP'] && !$game['ranking_parameters']['home']['homeWinsVsEventDayLP']) {
-        $game['algo_rank'] = 'B';
-        $game['to_win'] = 'home';
-      }
+      // if ($game['ranking_parameters']['away']['awayWinsVsEventDayLP'] && !$game['ranking_parameters']['home']['homeWinsVsEventDayLP']) {
+      //   $game['algo_rank'] = 'B';
+      //   $game['to_win'] = 'home';
+      // }
 
       // Total Wins one under Event LP, same team to win, rank C
       if ($game['ranking_parameters']['home']['oneUnderTotalWinsVsEventDayLP'] && !$game['ranking_parameters']['away']['oneUnderTotalWinsVsEventDayLP']) {
@@ -414,67 +414,67 @@ class HockeyNumerologyService {
 
       // Is  in 7 year cycle, other team to win, rank D
       if ($game['ranking_parameters']['home']['isGoalieSevenYear'] && !$game['ranking_parameters']['away']['isGoalieSevenYear']) {
-        $game['algo_rank'] = 'D';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'away';
       }
 
       // Is  in 7 year cycle, home team to win, rank D
       if ($game['ranking_parameters']['away']['isGoalieSevenYear'] && !$game['ranking_parameters']['home']['isGoalieSevenYear']) {
-        $game['algo_rank'] = 'D';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 
       // If both s in enemy year, rank E, auto over
       if ($game['ranking_parameters']['home']['bothGoaliesEnemyYr'] && $game['ranking_parameters']['away']['bothGoaliesEnemyYr']) {
-        $game['algo_rank'] = 'E';
+        $game['algo_rank'] = 'A';
         $game['auto_over'] = true;
       }
 
       // If home  is enemy and away  is friendly, rank F, away team to win
-      if ($game['ranking_parameters']['home']['isHomeEnemyAwayFriendly']) {
-        $game['algo_rank'] = 'F';
-        $game['to_win'] = 'away';
-      }
+      // if ($game['ranking_parameters']['home']['isHomeEnemyAwayFriendly']) {
+      //   $game['algo_rank'] = 'F';
+      //   $game['to_win'] = 'away';
+      // }
 
       // If away  is enemy and home  is friendly, rank F, home team to win
       if ($game['ranking_parameters']['away']['isAwayEnemyHomeFriendly']) {
-        $game['algo_rank'] = 'F';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 
       // Is  a 1 LP and event LP is 9, rank G, away team to win
       if ($game['ranking_parameters']['home']['isGoalieOneDayNine']) {
-        $game['algo_rank'] = 'G';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'away';
       }
 
       // Is  a 1 LP and event LP is 9, rank G, home team to win
       if ($game['ranking_parameters']['away']['isGoalieOneDayNine']) {
-        $game['algo_rank'] = 'G';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 
       // Is  a 9 LP and event LP is 1, rank H, away team to win
       if ($game['ranking_parameters']['home']['isGoalieNineDayOne']) {
-        $game['algo_rank'] = 'H';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'away';
       }
 
       // Is  a 9 LP and event LP is 1, rank H, home team to win
       if ($game['ranking_parameters']['away']['isGoalieNineDayOne']) {
-        $game['algo_rank'] = 'H';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 
       // Is  bornday last two digits of year, rank I, away team to win
       if ($game['ranking_parameters']['home']['isGoalieBDLastTwo']) {
-        $game['algo_rank'] = 'I';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'away';
       }
 
       // Is  bornday last two digits of year, rank I, home team to win
       if ($game['ranking_parameters']['away']['isGoalieBDLastTwo']) {
-        $game['algo_rank'] = 'I';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 

@@ -273,18 +273,18 @@ class BaseballNumerologyService {
 
       // Compare Total Wins vs Event LP values
       if ($game['homeTeam_records_lp']['total'] == $game['event_data']['event_lp']) {
-        $game['ranking_parameters']['home']['totalWinsVsEventDayLP'] = true;
+        $game['ranking_parameters']['away']['totalWinsVsEventDayLP'] = true;
       }
       if ($game['awayTeam_records_lp']['total'] == $game['event_data']['event_lp']) {
-        $game['ranking_parameters']['away']['totalWinsVsEventDayLP'] = true;
+        $game['ranking_parameters']['home']['totalWinsVsEventDayLP'] = true;
       }
 
       // Compare Home/Away Wins vs Event LP values
       if ($game['homeTeam_records_lp']['home'] == $game['event_data']['event_lp']) {
-        $game['ranking_parameters']['home']['homeWinsVsEventDayLP'] = true;
+        $game['ranking_parameters']['away']['homeWinsVsEventDayLP'] = true;
       }
       if ($game['awayTeam_records_lp']['away'] == $game['event_data']['event_lp']) {
-        $game['ranking_parameters']['away']['awayWinsVsEventDayLP'] = true;
+        $game['ranking_parameters']['home']['awayWinsVsEventDayLP'] = true;
       }
 
       // Total Record One Under vs Event LP values
@@ -380,27 +380,27 @@ class BaseballNumerologyService {
       // parameters for A rank
       // Total Wins equal to Event LP, other team to win
       if ($game['ranking_parameters']['home']['totalWinsVsEventDayLP'] && !$game['ranking_parameters']['away']['totalWinsVsEventDayLP']) {
-        $game['algo_rank'] = 'A';
+        $game['algo_rank'] = 'C';
         $game['to_win'] = 'away';
       }
 
       // Total Wins equal to Event LP, home team to win
       if ($game['ranking_parameters']['away']['totalWinsVsEventDayLP'] && !$game['ranking_parameters']['home']['totalWinsVsEventDayLP']) {
-        $game['algo_rank'] = 'A';
+        $game['algo_rank'] = 'C';
         $game['to_win'] = 'home';
       }
 
       // Home Wins equal to Event LP, other team to win, rank B
-      if ($game['ranking_parameters']['home']['homeWinsVsEventDayLP'] && !$game['ranking_parameters']['away']['awayWinsVsEventDayLP']) {
-        $game['algo_rank'] = 'B';
-        $game['to_win'] = 'away';
-      }
+      // if ($game['ranking_parameters']['home']['homeWinsVsEventDayLP'] && !$game['ranking_parameters']['away']['awayWinsVsEventDayLP']) {
+      //   $game['algo_rank'] = 'B';
+      //   $game['to_win'] = 'away';
+      // }
 
       // Away Wins equal to Event LP, home team to win, rank B
-      if ($game['ranking_parameters']['away']['awayWinsVsEventDayLP'] && !$game['ranking_parameters']['home']['homeWinsVsEventDayLP']) {
-        $game['algo_rank'] = 'B';
-        $game['to_win'] = 'home';
-      }
+      // if ($game['ranking_parameters']['away']['awayWinsVsEventDayLP'] && !$game['ranking_parameters']['home']['homeWinsVsEventDayLP']) {
+      //   $game['algo_rank'] = 'B';
+      //   $game['to_win'] = 'home';
+      // }
 
       // Total Wins one under Event LP, same team to win, rank C
       if ($game['ranking_parameters']['home']['oneUnderTotalWinsVsEventDayLP'] && !$game['ranking_parameters']['away']['oneUnderTotalWinsVsEventDayLP']) {
@@ -416,67 +416,67 @@ class BaseballNumerologyService {
 
       // Is pitcher in 7 year cycle, other team to win, rank D
       if ($game['ranking_parameters']['home']['isPitcherSevenYear'] && !$game['ranking_parameters']['away']['isPitcherSevenYear']) {
-        $game['algo_rank'] = 'D';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'away';
       }
 
       // Is pitcher in 7 year cycle, home team to win, rank D
       if ($game['ranking_parameters']['away']['isPitcherSevenYear'] && !$game['ranking_parameters']['home']['isPitcherSevenYear']) {
-        $game['algo_rank'] = 'D';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 
       // If both pitchers in enemy year, rank E, auto over
       if ($game['ranking_parameters']['home']['bothPitchersEnemyYr'] && $game['ranking_parameters']['away']['bothPitchersEnemyYr']) {
-        $game['algo_rank'] = 'E';
+        $game['algo_rank'] = 'A';
         $game['auto_over'] = true;
       }
 
       // If home pitcher is enemy and away pitcher is friendly, rank F, away team to win
-      if ($game['ranking_parameters']['home']['isHomeEnemyAwayFriendly']) {
-        $game['algo_rank'] = 'F';
-        $game['to_win'] = 'away';
-      }
+      // if ($game['ranking_parameters']['home']['isHomeEnemyAwayFriendly']) {
+      //   $game['algo_rank'] = 'F';
+      //   $game['to_win'] = 'away';
+      // }
 
       // If away pitcher is enemy and home pitcher is friendly, rank F, home team to win
-      if ($game['ranking_parameters']['away']['isAwayEnemyHomeFriendly']) {
-        $game['algo_rank'] = 'F';
-        $game['to_win'] = 'home';
-      }
+      // if ($game['ranking_parameters']['away']['isAwayEnemyHomeFriendly']) {
+      //   $game['algo_rank'] = 'F';
+      //   $game['to_win'] = 'home';
+      // }
 
       // Is pitcher a 1 LP and event LP is 9, rank G, away team to win
       if ($game['ranking_parameters']['home']['isPitcherOneDayNine']) {
-        $game['algo_rank'] = 'G';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'away';
       }
 
       // Is pitcher a 1 LP and event LP is 9, rank G, home team to win
       if ($game['ranking_parameters']['away']['isPitcherOneDayNine']) {
-        $game['algo_rank'] = 'G';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 
       // Is pitcher a 9 LP and event LP is 1, rank H, away team to win
       if ($game['ranking_parameters']['home']['isPitcherNineDayOne']) {
-        $game['algo_rank'] = 'H';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'away';
       }
 
       // Is pitcher a 9 LP and event LP is 1, rank H, home team to win
       if ($game['ranking_parameters']['away']['isPitcherNineDayOne']) {
-        $game['algo_rank'] = 'H';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 
       // Is pitcher bornday last two digits of year, rank I, away team to win
       if ($game['ranking_parameters']['home']['isPitcherBDLastTwo']) {
-        $game['algo_rank'] = 'I';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'home';
       }
 
       // Is pitcher bornday last two digits of year, rank I, home team to win
       if ($game['ranking_parameters']['away']['isPitcherBDLastTwo']) {
-        $game['algo_rank'] = 'I';
+        $game['algo_rank'] = 'B';
         $game['to_win'] = 'away';
       }
 
